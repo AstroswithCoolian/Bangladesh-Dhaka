@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+    <title>WOW </title> 
+    <style>
+.banner-img{
+    width: 100%;
+    height:300px;
+    object-fit:cover;
+    display:block;
+}
+body{
+    margin:0;
+    text-align: center;
+    font-family:cursive;
+    background-image:linear-gradient(to right, red, green)
+}
+h1{
+margin:20px 0;
+font-size: 40px;
+font-weight: bold;
+}
+.container{
+    position:relative;
+    width:90%;
+    height:400px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:10px;
+}
+.main-img{
+    width:100%;
+    height:400px;
+    border-radius:10px;
+    object-fit: cover;
+}
+.btn{
+    position:absolute;
+    top:45%;
+    color:snow;
+    border:none;
+    padding: 12.5px;
+    cursor:pointer ;
+    font-size:20px;
+    border-radius: 10px;
+    background-image:linear-gradient(green, red) ;
+}
+.prev{
+    left: 10px;
+}
+.next{
+    right: 10px;
+}
+.thumb-container{
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+    overflow-x: auto;
+}
+.thumb-container img{
+    width:150px;
+    height:100px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 5px;
+    transition:0.4s;
+}
+.thumb-container img:hover{transform:scale(1.2);}
+btn-next{
+    margin: 25px;
+    font-size: 22px;
+    padding:10px 30px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body> 
+<div class="banner">
+<img alt="Bangladesh" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRUKd0wR7eQI_B145PPnL3RBBFI8Psbfm0JQ&s" class="banner-img">
+</div>
+ <h1>Bangladesh, Dhaka </h1> 
+<div class="container">
+<img id="main-img" class="main-img" alt="" src="https://cdn.britannica.com/97/189797-050-1FC0041B/Night-view-Dhaka-Bangladesh.jpg">
+<button class="btn prev" onclick="slides(-1)> <</button>
+<button class="btn next" onclick="slides(1)> ></button>
+</div>
+<div class="thumb-container" id="mythumbs"> </div>
+<button class="btn-next" onclick="slides(1)">NEXT </button>
+<script>
+let slideIndex = 0;
+let images = ["https://cdn.britannica.com/97/189797-050-1FC0041B/Night-view-Dhaka-Bangladesh.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMf4TWq62NqYZO-cHI9W7eN1z7vxIvZUroEg&s ", "https://asian.washington.edu/sites/asian/files/images/frankmelinda_bangladeshdhaka22.jpg", "https://www.qatarairways.com/content/dam/images/renditions/vertical-hd/destinations/bangladesh/dhaka/v-hd-dhaka.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWbKEyeO3tyLRErJatz9v5r-c6-o5E8H13rg&s", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMt7DG9YiFTkp_uhwQ2_Cc0wYVN9OjQUJikA&s"];
+
+document.getElementById("main-img").src = images[0];
+let thumbBox = document.getElementById("mythumbs");
+function showslide(){
+    document.getElementById("main-img").src = image[slideIndex];
+}
+for(let i = 0; i < images.length; i++){
+let pic = document.createElement("img");
+pic.src = images[i];
+pic.onclick = function(){
+    slideIndex = i
+    showslide()
+} 
+thumbBox.appendChild(pic);
+}
+
+function slides(n){
+    slideIndex = slideIndex + n;
+    if(slideIndex >= images.length){
+        slideIndex = 0
+    }
+    if(slideIndex < 0){
+        slideIndex = images.length-1;
+    }
+    showslide()
+}
+</script>
+</body>
+</html>
