@@ -83,8 +83,8 @@ btn-next{
  <h1>Bangladesh, Dhaka </h1> 
 <div class="container">
 <img id="main-img" class="main-img" alt="" src="https://cdn.britannica.com/97/189797-050-1FC0041B/Night-view-Dhaka-Bangladesh.jpg">
-<button class="btn prev" onclick="slides(-1)> <</button>
-<button class="btn next" onclick="slides(1)> ></button>
+<button class="btn prev" onclick="slides(-1)"> <</button>
+<button class="btn next" onclick="slides(1)"> ></button>
 </div>
 <div class="thumb-container" id="mythumbs"> </div>
 <button class="btn-next" onclick="slides(1)">NEXT </button>
@@ -95,7 +95,7 @@ let images = ["https://cdn.britannica.com/97/189797-050-1FC0041B/Night-view-Dhak
 document.getElementById("main-img").src = images[0];
 let thumbBox = document.getElementById("mythumbs");
 function showslide(){
-    document.getElementById("main-img").src = image[slideIndex];
+    document.getElementById("main-img").src = images[slideIndex];
 }
 for(let i = 0; i < images.length; i++){
 let pic = document.createElement("img");
